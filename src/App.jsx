@@ -546,38 +546,6 @@ Please email this to: tfqnet@gmail.com`;
           </div>
 
           <div style={{
-            background: 'rgba(255, 193, 7, 0.1)',
-            borderRadius: '15px',
-            padding: '20px',
-            marginBottom: '20px',
-            border: '1px solid rgba(255, 193, 7, 0.3)',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ color: '#4c1d95', marginTop: 0 }}>☕ Support Development</h3>
-            <p style={{ marginBottom: '15px', color: '#666' }}>
-              If you find this app helpful, consider buying me a coffee!
-            </p>
-            <a
-              href="https://paypal.me/taufiqtomadan"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                background: '#0070f3',
-                color: 'white',
-                padding: '12px 24px',
-                borderRadius: '10px',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '16px',
-                transition: 'background 0.3s ease'
-              }}
-            >
-              💳 Donate via PayPal
-            </a>
-          </div>
-
-          <div style={{
             background: 'rgba(103, 126, 234, 0.1)',
             borderRadius: '15px',
             padding: '20px',
@@ -625,6 +593,81 @@ Please email this to: tfqnet@gmail.com`;
                 </p>
               )}
             </form>
+          </div>
+
+          <div style={{
+            background: 'rgba(103, 126, 234, 0.1)',
+            borderRadius: '15px',
+            padding: '20px',
+            marginBottom: '20px',
+            border: '1px solid rgba(103, 126, 234, 0.2)',
+            textAlign: 'center'
+          }}>
+            <h3 style={{ color: '#4c1d95', marginTop: 0 }}>☕ Support Development</h3>
+            <p style={{ marginBottom: '15px', color: '#666' }}>
+              If you find this app helpful, consider buying me a coffee!
+            </p>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '10px', 
+              alignItems: 'center',
+              '@media (min-width: 480px)': {
+                flexDirection: 'row',
+                justifyContent: 'center'
+              }
+            }}>
+              <a
+                href="https://paypal.me/taufiqtomadan"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  background: '#4facfe',
+                  color: 'white',
+                  padding: '12px 24px',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '16px',
+                  transition: 'background 0.3s ease',
+                  minWidth: '180px',
+                  textAlign: 'center'
+                }}
+              >
+                💳 PayPal
+              </a>
+              <a
+                href="touchngo://transfer?account=180378429018"
+                onClick={(e) => {
+                  // Fallback for web browsers that don't support the app scheme
+                  setTimeout(() => {
+                    if (confirm('Touch and Go app not found. Copy account number 180378429018?')) {
+                      navigator.clipboard.writeText('180378429018').then(() => {
+                        alert('Account number copied: 180378429018');
+                      }).catch(() => {
+                        alert('Account number: 180378429018');
+                      });
+                    }
+                  }, 1000);
+                }}
+                style={{
+                  display: 'inline-block',
+                  background: '#00A651',
+                  color: 'white',
+                  padding: '12px 24px',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '16px',
+                  transition: 'background 0.3s ease',
+                  minWidth: '180px',
+                  textAlign: 'center'
+                }}
+              >
+                📱 Touch & Go
+              </a>
+            </div>
           </div>
 
           <div style={{ textAlign: 'center', opacity: 0.8, fontSize: '14px' }}>
