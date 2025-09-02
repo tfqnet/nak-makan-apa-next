@@ -722,9 +722,9 @@ Please email this to: tfqnet@gmail.com`;
               src={appIcon} 
               alt="Nak Makan Apa Icon" 
               style={{
-                width: '60px',
-                height: '60px',
-                borderRadius: '15px',
+                width: '100px',
+                height: '100px',
+                borderRadius: '25px',
                 marginBottom: '10px',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
               }}
@@ -734,7 +734,6 @@ Please email this to: tfqnet@gmail.com`;
         {step === 0 && <h1 style={{ color: colors.titleColor }}>Nak Makan Apa?</h1>}
         {step === 0 && (
           <>
-            <h2>Pilih jenis restoran:</h2>
             <div className="options" style={{flexDirection: 'column', gap: '1rem'}}>
               <button onClick={() => handleRestaurant('mamak')}>Restoren Mamak</button>
               <button onClick={() => handleRestaurant('thai')}>Kedai Tomyan</button>
