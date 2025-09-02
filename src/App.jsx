@@ -546,6 +546,38 @@ Please email this to: tfqnet@gmail.com`;
           </div>
 
           <div style={{
+            background: 'rgba(255, 193, 7, 0.1)',
+            borderRadius: '15px',
+            padding: '20px',
+            marginBottom: '20px',
+            border: '1px solid rgba(255, 193, 7, 0.3)',
+            textAlign: 'center'
+          }}>
+            <h3 style={{ color: '#4c1d95', marginTop: 0 }}>☕ Support Development</h3>
+            <p style={{ marginBottom: '15px', color: '#666' }}>
+              If you find this app helpful, consider buying me a coffee!
+            </p>
+            <a
+              href="https://paypal.me/taufiqtomadan"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                background: '#0070f3',
+                color: 'white',
+                padding: '12px 24px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '16px',
+                transition: 'background 0.3s ease'
+              }}
+            >
+              💳 Donate via PayPal
+            </a>
+          </div>
+
+          <div style={{
             background: 'rgba(103, 126, 234, 0.1)',
             borderRadius: '15px',
             padding: '20px',
