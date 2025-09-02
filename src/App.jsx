@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import tngQRCode from './assets/tngqrcode.jpg';
+import tngQRCode from './assets/tngqrcode.JPG';
 import appIcon from './assets/makanapaicon.png';
 import './App.css';
 
