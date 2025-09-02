@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import './App.css';
 
 // App version - controlled by developer
-const APP_VERSION = '2.1.0';
+const APP_VERSION = '2.2.0';
 
 
 const foodCategories = {
@@ -543,29 +543,6 @@ Please email this to: tfqnet@gmail.com`;
           <div style={{ marginBottom: '30px', lineHeight: '1.6' }}>
             <p><strong>Version:</strong> {APP_VERSION}</p>
             <p><strong>Developer:</strong> Taufiq Tomadan</p>
-            
-            <h3>What is this app?</h3>
-            <p>
-              "Nak Makan Apa?" helps you decide what to eat based on your current mood and preferences. 
-              Simply answer three questions about how hungry you are, if you want something spicy, 
-              and your budget preference. The app will suggest the perfect Malaysian food for you!
-            </p>
-
-            <h3>Features:</h3>
-            <ul style={{ paddingLeft: '20px' }}>
-              <li>90+ Malaysian food options across Western, Mamak, and Thai categories</li>
-              <li>Smart recommendation system based on your preferences</li>
-              <li>Mobile-friendly swipe gestures (swipe right for yes, left for no)</li>
-              <li>Progressive Web App (PWA) - install it on your phone!</li>
-              <li>Offline support</li>
-            </ul>
-
-            <h3>How to use:</h3>
-            <ol style={{ paddingLeft: '20px' }}>
-              <li>Choose your preferred restaurant type</li>
-              <li>Answer three simple questions about your preferences</li>
-              <li>Get your personalized food recommendation!</li>
-            </ol>
           </div>
 
           <div style={{
@@ -663,9 +640,8 @@ Please email this to: tfqnet@gmail.com`;
           <>
             <h2>Pilih jenis restoran:</h2>
             <div className="options" style={{flexDirection: 'column', gap: '1rem'}}>
-              <button onClick={() => handleRestaurant('western')}>Western Food</button>
-              <button onClick={() => handleRestaurant('mamak')}>Mamak</button>
-              <button onClick={() => handleRestaurant('thai')}>Thai Food</button>
+              <button onClick={() => handleRestaurant('mamak')}>Restoren Mamak</button>
+              <button onClick={() => handleRestaurant('thai')}>Kedai Tomyan</button>
             </div>
             <button 
               onClick={() => setCurrentPage('about')}
@@ -676,7 +652,7 @@ Please email this to: tfqnet@gmail.com`;
                 padding: '8px 16px',
                 color: colors.titleColor,
                 cursor: 'pointer',
-                marginTop: '20px',
+                marginTop: '40px',
                 fontSize: '14px'
               }}
             >
