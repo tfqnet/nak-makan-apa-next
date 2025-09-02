@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import tngQRCode from './assets/tngqrcode.jpg';
+import appIcon from './assets/makanapaicon.png';
 import './App.css';
 
 // App version - controlled by developer
@@ -207,6 +209,7 @@ function App() {
   const [showJigglePopup, setShowJigglePopup] = useState(false);
   const [lastInteraction, setLastInteraction] = useState(Date.now());
   const [currentSuggestion, setCurrentSuggestion] = useState(''); // Store the suggestion
+  const [showQRPopup, setShowQRPopup] = useState(false); // QR code popup state
 
   // Animation state for swipe
   const [swipeStyle, setSwipeStyle] = useState({});
@@ -538,6 +541,20 @@ Please email this to: tfqnet@gmail.com`;
             ← Back to App
           </button>
 
+          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+            <img 
+              src={appIcon} 
+              alt="Nak Makan Apa Icon" 
+              style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '20px',
+                marginBottom: '10px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+              }}
+            />
+          </div>
+
           <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#4c1d95' }}>About Nak Makan Apa?</h1>
           
           <div style={{ marginBottom: '30px', lineHeight: '1.6' }}>
@@ -637,57 +654,25 @@ Please email this to: tfqnet@gmail.com`;
               >
                 💳 PayPal
               </a>
-              <a
-                href="tngd://send?mobile=0180378429018"
-                onClick={(e) => {
-                  // Try multiple TNG eWallet schemes and fallback
-                  e.preventDefault();
-                  const schemes = [
-                    'tngd://send?mobile=0180378429018',
-                    'tngd://transfer?mobile=0180378429018',
-                    'tngewallet://send?mobile=0180378429018',
-                    'touchngo://send?mobile=0180378429018'
-                  ];
-                  
-                  let currentScheme = 0;
-                  const tryScheme = () => {
-                    if (currentScheme >= schemes.length) {
-                      // All schemes failed, show fallback
-                      if (confirm('TNG eWallet app not found. Copy mobile number 0180378429018?')) {
-                        navigator.clipboard.writeText('0180378429018').then(() => {
-                          alert('Mobile number copied: 0180378429018');
-                        }).catch(() => {
-                          alert('Mobile number: 0180378429018');
-                        });
-                      }
-                      return;
-                    }
-                    
-                    window.location.href = schemes[currentScheme];
-                    currentScheme++;
-                    
-                    // Try next scheme after delay
-                    setTimeout(tryScheme, 1000);
-                  };
-                  
-                  tryScheme();
-                }}
+              <button
+                onClick={() => setShowQRPopup(true)}
                 style={{
                   display: 'inline-block',
                   background: '#00A651',
                   color: 'white',
                   padding: '12px 24px',
                   borderRadius: '10px',
-                  textDecoration: 'none',
+                  border: 'none',
                   fontWeight: '600',
                   fontSize: '16px',
+                  cursor: 'pointer',
                   transition: 'background 0.3s ease',
                   minWidth: '180px',
                   textAlign: 'center'
                 }}
               >
-                📱 TNG eWallet
-              </a>
+                📱 TNG DuitNow QR
+              </button>
             </div>
           </div>
 
@@ -731,6 +716,21 @@ Please email this to: tfqnet@gmail.com`;
           boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)'
         }}
       >
+        {step === 0 && (
+          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+            <img 
+              src={appIcon} 
+              alt="Nak Makan Apa Icon" 
+              style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '15px',
+                marginBottom: '10px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+              }}
+            />
+          </div>
+        )}
         {step === 0 && <h1 style={{ color: colors.titleColor }}>Nak Makan Apa?</h1>}
         {step === 0 && (
           <>
@@ -800,6 +800,71 @@ Please email this to: tfqnet@gmail.com`;
         )}
       </div>
     </div>
+      )}
+      
+      {/* QR Code Popup */}
+      {showQRPopup && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+            cursor: 'pointer'
+          }}
+          onClick={() => setShowQRPopup(false)}
+        >
+          <div 
+            style={{
+              background: 'white',
+              borderRadius: '20px',
+              padding: '20px',
+              maxWidth: '90vw',
+              maxHeight: '90vh',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              cursor: 'default'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 style={{ margin: '0 0 15px 0', color: '#333' }}>TNG DuitNow QR Code</h3>
+            <img 
+              src={tngQRCode} 
+              alt="TNG DuitNow QR Code"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '60vh',
+                borderRadius: '10px',
+                border: '2px solid #00A651'
+              }}
+            />
+            <p style={{ margin: '15px 0 0 0', color: '#666', textAlign: 'center', fontSize: '14px' }}>
+              Scan with any banking app or TNG eWallet
+            </p>
+            <button
+              onClick={() => setShowQRPopup(false)}
+              style={{
+                marginTop: '15px',
+                background: '#00A651',
+                color: 'white',
+                border: 'none',
+                borderRadius: '10px',
+                padding: '10px 20px',
+                cursor: 'pointer',
+                fontSize: '14px'
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
       )}
     </>
   );
