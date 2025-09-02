@@ -622,7 +622,7 @@ Please email this to: tfqnet@gmail.com`;
           }}>
             <h3 style={{ color: '#4c1d95', marginTop: 0 }}>☕ Support Development</h3>
             <p style={{ marginBottom: '15px', color: '#666' }}>
-              If you find this app helpful, consider buying me a coffee!
+              If you find this app helpful, consider buying me Teh Tarik!
             </p>
             <div style={{ 
               display: 'flex', 
@@ -648,11 +648,11 @@ Please email this to: tfqnet@gmail.com`;
                   fontWeight: '600',
                   fontSize: '16px',
                   transition: 'background 0.3s ease',
-                  minWidth: '180px',
+                  width: '150px',
                   textAlign: 'center'
                 }}
               >
-                💳 PayPal
+                PayPal
               </a>
               <button
                 onClick={() => setShowQRPopup(true)}
@@ -667,11 +667,11 @@ Please email this to: tfqnet@gmail.com`;
                   fontSize: '16px',
                   cursor: 'pointer',
                   transition: 'background 0.3s ease',
-                  minWidth: '180px',
+                  width: '150px',
                   textAlign: 'center'
                 }}
               >
-                📱 TNG DuitNow QR
+                TNG DuitNow QR
               </button>
             </div>
           </div>
