@@ -638,18 +638,39 @@ Please email this to: tfqnet@gmail.com`;
                 💳 PayPal
               </a>
               <a
-                href="touchngo://transfer?account=180378429018"
+                href="tngd://send?mobile=0180378429018"
                 onClick={(e) => {
-                  // Fallback for web browsers that don't support the app scheme
-                  setTimeout(() => {
-                    if (confirm('Touch and Go app not found. Copy account number 180378429018?')) {
-                      navigator.clipboard.writeText('180378429018').then(() => {
-                        alert('Account number copied: 180378429018');
-                      }).catch(() => {
-                        alert('Account number: 180378429018');
-                      });
+                  // Try multiple TNG eWallet schemes and fallback
+                  e.preventDefault();
+                  const schemes = [
+                    'tngd://send?mobile=0180378429018',
+                    'tngd://transfer?mobile=0180378429018',
+                    'tngewallet://send?mobile=0180378429018',
+                    'touchngo://send?mobile=0180378429018'
+                  ];
+                  
+                  let currentScheme = 0;
+                  const tryScheme = () => {
+                    if (currentScheme >= schemes.length) {
+                      // All schemes failed, show fallback
+                      if (confirm('TNG eWallet app not found. Copy mobile number 0180378429018?')) {
+                        navigator.clipboard.writeText('0180378429018').then(() => {
+                          alert('Mobile number copied: 0180378429018');
+                        }).catch(() => {
+                          alert('Mobile number: 0180378429018');
+                        });
+                      }
+                      return;
                     }
-                  }, 1000);
+                    
+                    window.location.href = schemes[currentScheme];
+                    currentScheme++;
+                    
+                    // Try next scheme after delay
+                    setTimeout(tryScheme, 1000);
+                  };
+                  
+                  tryScheme();
                 }}
                 style={{
                   display: 'inline-block',
@@ -665,7 +686,7 @@ Please email this to: tfqnet@gmail.com`;
                   textAlign: 'center'
                 }}
               >
-                📱 Touch & Go
+                📱 TNG eWallet
               </a>
             </div>
           </div>
