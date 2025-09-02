@@ -225,9 +225,9 @@ function App() {
   }, []);
 
   const questions = [
-    { key: 'hungry', text: 'Hungry or not?' },
-    { key: 'spicy', text: 'Spicy or not?' },
-    { key: 'expensive', text: 'Expensive or not?' },
+    { key: 'hungry', text: 'Lapar ke tak?' },
+    { key: 'spicy', text: 'Pedas ke tak?' },
+    { key: 'expensive', text: 'Mahal ke murah?' },
   ];
 
   const handleRestaurant = (type) => {
@@ -776,22 +776,30 @@ Please email this to: tfqnet@gmail.com`;
                 animation: 'fadeInOut 2s ease',
                 pointerEvents: 'none'
               }}>
-                👈 No<br/>
-                👉 Yes
+                👈 {questions[step - 1].key === 'hungry' ? 'Tak Lapar' : 
+                     questions[step - 1].key === 'spicy' ? 'Tak Pedas' : 'Murah'}<br/>
+                👉 {questions[step - 1].key === 'hungry' ? 'Lapar' : 
+                     questions[step - 1].key === 'spicy' ? 'Pedas' : 'Mahal'}
               </div>
             )}
             <h2>{questions[step - 1].text}</h2>
             {!isMobile.current && (
               <div className="options">
-                <button onClick={() => handleAnswer('YES')}>YES</button>
-                <button onClick={() => handleAnswer('NO')}>NO</button>
+                <button onClick={() => handleAnswer('YES')}>
+                  {questions[step - 1].key === 'hungry' ? 'Lapar' : 
+                   questions[step - 1].key === 'spicy' ? 'Pedas' : 'Mahal'}
+                </button>
+                <button onClick={() => handleAnswer('NO')}>
+                  {questions[step - 1].key === 'hungry' ? 'Tak Lapar' : 
+                   questions[step - 1].key === 'spicy' ? 'Tak Pedas' : 'Murah'}
+                </button>
               </div>
             )}
           </>
         )}
         {step > questions.length && (
           <>
-            <h2>Cadangan makanan untuk anda:</h2>
+            <h2>Cadangan makanan untuk awak:</h2>
             <p className="suggestion">{currentSuggestion}</p>
             <div style={{display: 'flex', justifyContent: 'center', marginTop: '2rem'}}>
               <button onClick={handleRestart}>Cuba lagi</button>
