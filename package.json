@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "increment-build": "node increment-build.js",
+    "deploy-prod": "./deploy.sh"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

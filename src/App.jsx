@@ -6,6 +6,7 @@ import './App.css';
 
 // App version - controlled by developer
 const APP_VERSION = '2.2.0';
+const BUILD_NUMBER = '001'; // Increment with each deployment
 
 
 const foodCategories = {
@@ -432,9 +433,9 @@ function App() {
       // Simple feedback submission using FormSubmit (no setup required)
       const formData = new FormData();
       formData.append('feedback', feedbackText);
-      formData.append('app_version', APP_VERSION);
+      formData.append('app_version', `${APP_VERSION} Build ${BUILD_NUMBER}`);
       formData.append('timestamp', new Date().toLocaleString());
-      formData.append('_subject', `Feedback from Nak Makan Apa v${APP_VERSION}`);
+      formData.append('_subject', `Feedback from Nak Makan Apa v${APP_VERSION} Build ${BUILD_NUMBER}`);
       formData.append('_captcha', 'false');
       formData.append('_template', 'table');
 
@@ -455,7 +456,7 @@ function App() {
       const fallbackMessage = `Hi! Here's the feedback that couldn't be sent automatically:
 
 Feedback: ${feedbackText}
-App Version: ${APP_VERSION}
+App Version: ${APP_VERSION} Build ${BUILD_NUMBER}
 Time: ${new Date().toLocaleString()}
 
 Please email this to: tfqnet@gmail.com`;
@@ -592,7 +593,7 @@ Please email this to: tfqnet@gmail.com`;
           <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#4c1d95' }}>About Nak Makan Apa?</h1>
           
           <div style={{ marginBottom: '30px', lineHeight: '1.6' }}>
-            <p><strong>Version:</strong> {APP_VERSION}</p>
+            <p><strong>Version:</strong> {APP_VERSION} Build {BUILD_NUMBER}</p>
             <p><strong>Developer:</strong> Taufiq Tomadan</p>
           </div>
 
