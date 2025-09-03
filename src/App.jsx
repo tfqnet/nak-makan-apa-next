@@ -6,7 +6,7 @@ import './App.css';
 
 // App version - controlled by developer
 const APP_VERSION = '2.2.0';
-const BUILD_NUMBER = '001'; // Increment with each deployment
+const BUILD_NUMBER = '002'; // Increment with each deployment
 
 
 const foodCategories = {
@@ -71,84 +71,142 @@ const foodCategories = {
     { name: 'Chili Cheese Nachos', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
   ],
   mamak: [
-    { name: 'Roti Canai', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Nasi Kandar', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Maggi Goreng', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Mee Goreng Mamak', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Teh Tarik', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Nasi Lemak', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Ayam Goreng Mamak', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Tosai', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Roti Telur', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Milo Ais', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Roti Bom', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Roti Pisang', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Chapati', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Putu Mayam', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Mee Rebus', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Laksa', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Mee Bandung', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Nasi Briyani', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Kambing Soup', hungry: 'YES', spicy: 'NO', expensive: 'YES' },
-    { name: 'Ayam Tandoori', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Roti Jala', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Kuey Teow Goreng', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Murtabak', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Roti Tissue', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Nasi Tomato', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Dalcha', hungry: 'YES', spicy: 'NO', expensive: 'NO' },
-    { name: 'Rendang Daging', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Kari Ayam', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Kopi O', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Limau Ais', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    // Adding more options for ALL YES combination
-    { name: 'Nasi Kandar Special', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Kambing Briyani', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Fish Head Curry', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Mutton Curry', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Beef Rendang Premium', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Lobster Curry Mamak', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    { name: 'Premium Nasi Kandar Set', hungry: 'YES', spicy: 'YES', expensive: 'YES' },
-    // More spicy but cheap options
-    { name: 'Mee Curry', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Bee Hoon Goreng Pedas', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Nasi Goreng Cili Padi', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Mee Kolok Pedas', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Rojak Mamak', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Maggi Goreng Pedas', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    { name: 'Mee Goreng Cili Padi', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
-    // More light snacks
-    { name: 'Vadai', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Idli', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Appam', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Roti Kirai', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Kuih Muih', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Pisang Goreng', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    { name: 'Cucur Udang', hungry: 'NO', spicy: 'NO', expensive: 'NO' },
-    // More expensive light options
-    { name: 'Cheese Naan', hungry: 'NO', spicy: 'NO', expensive: 'YES' },
-    { name: 'Garlic Naan', hungry: 'NO', spicy: 'NO', expensive: 'YES' },
-    { name: 'Butter Naan', hungry: 'NO', spicy: 'NO', expensive: 'YES' },
-    { name: 'Kulfi Ice Cream', hungry: 'NO', spicy: 'NO', expensive: 'YES' },
-    { name: 'Premium Teh Tarik', hungry: 'NO', spicy: 'NO', expensive: 'YES' },
-    { name: 'Fresh Coconut Water', hungry: 'NO', spicy: 'NO', expensive: 'YES' },
-    // More spicy light options
-    { name: 'Sambal Sotong', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
-    { name: 'Keropok Lekor Pedas', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
-    { name: 'Cucur Udang Pedas', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
-    { name: 'Acar Jelatah', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
-    { name: 'Sambal Ikan Bilis', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
-    { name: 'Rojak Buah Pedas', hungry: 'NO', spicy: 'YES', expensive: 'NO' },
-    // Expensive spicy light options
-    { name: 'Sambal Prawns', hungry: 'NO', spicy: 'YES', expensive: 'YES' },
-    { name: 'Chili Crab Bites', hungry: 'NO', spicy: 'YES', expensive: 'YES' },
-    { name: 'Spicy Oyster', hungry: 'NO', spicy: 'YES', expensive: 'YES' },
-    { name: 'Premium Sambal Udang', hungry: 'NO', spicy: 'YES', expensive: 'YES' },
-    // More hungry, not spicy, expensive options
-    { name: 'Ayam Bakar Premium', hungry: 'YES', spicy: 'NO', expensive: 'YES' },
-    { name: 'Ikan Bakar Special', hungry: 'YES', spicy: 'NO', expensive: 'YES' },
-    { name: 'Nasi Briyani Kambing', hungry: 'YES', spicy: 'NO', expensive: 'YES' },
-    { name: 'Sup Tulang Premium', hungry: 'YES', spicy: 'NO', expensive: 'YES' },
+    // === NASI KANDAR DISHES (Based on famous restaurants like Kayu, Q Bistro, Syed Bistro) ===
+    { name: 'Nasi Kandar Ayam', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 8-12
+    { name: 'Nasi Kandar Kambing', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 15-20
+    { name: 'Nasi Kandar Ikan', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 8-12
+    { name: 'Nasi Kandar Sotong', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 10-14
+    { name: 'Nasi Kandar Daging', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 12-18
+    { name: 'Nasi Kandar Telur', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-8
+    { name: 'Nasi Kandar Sayur', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 5-8
+    { name: 'Nasi Kandar Udang', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 15-25
+    { name: 'Nasi Kandar Special', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 18-28
+    { name: 'Nasi Kandar Ikan Tongkol', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 9-13
+    { name: 'Nasi Kandar Okra', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-9
+    
+    // === ROTI VARIETIES ===
+    { name: 'Roti Canai', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 1.50-2.50
+    { name: 'Roti Telur', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 3-4
+    { name: 'Roti Bawang', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 2.50-3.50
+    { name: 'Roti Boom', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 2-3
+    { name: 'Roti Tissue', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 4-6
+    { name: 'Roti Jantan', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 4-5
+    { name: 'Roti Tampal', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 4-5
+    { name: 'Roti Planta', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 2.50-3.50
+    { name: 'Roti Sardin', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 4-6
+    { name: 'Roti Tuna', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 5-7
+    { name: 'Roti Pisang', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Roti Hawaii', hungry: 'YES', spicy: 'NO', expensive: 'YES' }, // RM 8-12
+    { name: 'Roti John', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-8
+    { name: 'Roti Bakar', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Roti Coklat', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    
+    // === MURTABAK ===
+    { name: 'Murtabak Ayam', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 8-12
+    { name: 'Murtabak Daging', hungry: 'YES', spicy: 'NO', expensive: 'YES' }, // RM 10-15
+    { name: 'Murtabak Kambing', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 12-18
+    { name: 'Murtabak Sardin', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 8-10
+    { name: 'Murtabak Special', hungry: 'YES', spicy: 'NO', expensive: 'YES' }, // RM 15-20
+    
+    // === MEE & NOODLES ===
+    { name: 'Mee Goreng Mamak', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 6-8
+    { name: 'Mee Rebus', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-8
+    { name: 'Maggi Goreng', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 6-9
+    { name: 'Maggi Sup', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-8
+    { name: 'Mee Hoon Goreng', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 6-8
+    { name: 'Kuey Teow Goreng', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 7-9
+    { name: 'Mee Sup', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-8
+    { name: 'Mee Bandung', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 7-9
+    { name: 'Mee Curry', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 7-9
+    { name: 'Laksa Penang', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 7-10
+    
+    // === RICE DISHES ===
+    { name: 'Nasi Goreng Ayam', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 7-10
+    { name: 'Nasi Goreng Kambing', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 10-15
+    { name: 'Nasi Goreng Seafood', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 12-18
+    { name: 'Nasi Goreng Pattaya', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 8-12
+    { name: 'Nasi Goreng Kampung', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 7-10
+    { name: 'Nasi Lemak', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 5-8
+    { name: 'Nasi Briyani', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 8-12
+    { name: 'Nasi Tomato', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-9
+    
+    // === CURRY DISHES ===
+    { name: 'Kari Ayam', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 8-12
+    { name: 'Kari Kambing', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 12-18
+    { name: 'Kari Ikan', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 8-12
+    { name: 'Kari Daging', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 10-15
+    { name: 'Rendang Daging', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 12-18
+    { name: 'Rendang Ayam', hungry: 'YES', spicy: 'YES', expensive: 'NO' }, // RM 8-12
+    { name: 'Dalcha', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 6-9
+    { name: 'Kari Kepala Ikan', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 20-35
+    
+    // === INDIAN DISHES ===
+    { name: 'Tosai', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 2-4
+    { name: 'Chapati', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 2-3
+    { name: 'Putu Mayam', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Idli', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Vadai', hungry: 'NO', spicy: 'YES', expensive: 'NO' }, // RM 2-3
+    { name: 'Appam', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Uttapam', hungry: 'YES', spicy: 'NO', expensive: 'NO' }, // RM 4-6
+    
+    // === DRINKS ===
+    { name: 'Teh Tarik', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2-3
+    { name: 'Kopi O', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 1.50-2.50
+    { name: 'Milo Ais', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-4
+    { name: 'Teh O Ais', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2-3
+    { name: 'Bandung', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-4
+    { name: 'Air Suam', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 0.50-1
+    { name: 'Sirap Bandung', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-4
+    { name: 'Limau Ais', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2.50-3.50
+    { name: 'Teh Halia', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2.50-3.50
+    { name: 'Kopi Susu', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2.50-3.50
+    { name: 'Lassi', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 4-6
+    { name: 'Teh Tarik Kurang Manis', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2-3
+    
+    // === PREMIUM/EXPENSIVE DISHES ===
+    { name: 'Fish Head Curry', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 30-50
+    { name: 'Crab Curry', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 25-40
+    { name: 'Tandoori Chicken', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 18-25
+    { name: 'Grilled Lamb', hungry: 'YES', spicy: 'NO', expensive: 'YES' }, // RM 25-35
+    { name: 'Seafood Platter', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 35-60
+    { name: 'Premium Biryani', hungry: 'YES', spicy: 'NO', expensive: 'YES' }, // RM 15-25
+    { name: 'Mutton Biryani', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 18-28
+    { name: 'Lobster Curry', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 45-80
+    { name: 'Ayam Bakar Premium', hungry: 'YES', spicy: 'NO', expensive: 'YES' }, // RM 15-22
+    { name: 'Ikan Bakar Special', hungry: 'YES', spicy: 'YES', expensive: 'YES' }, // RM 20-30
+    
+    // === LIGHT SNACKS/APPETIZERS ===
+    { name: 'Keropok Lekor', hungry: 'NO', spicy: 'YES', expensive: 'NO' }, // RM 3-5
+    { name: 'Cucur Udang', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Muruku', hungry: 'NO', spicy: 'YES', expensive: 'NO' }, // RM 2-4
+    { name: 'Papadom', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 1-2
+    { name: 'Pickled Vegetables', hungry: 'NO', spicy: 'YES', expensive: 'NO' }, // RM 2-3
+    { name: 'Sambal Ikan Bilis', hungry: 'NO', spicy: 'YES', expensive: 'NO' }, // RM 3-5
+    { name: 'Acar Jelatah', hungry: 'NO', spicy: 'YES', expensive: 'NO' }, // RM 2-4
+    { name: 'Pisang Goreng', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 2-4
+    { name: 'Kuih Muih', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 1-3
+    
+    // === DESSERTS ===
+    { name: 'Ice Kacang', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 4-6
+    { name: 'Cendol', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    { name: 'Ais Batu Campur', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 4-6
+    { name: 'Kulfi', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 4-7
+    { name: 'Gulab Jamun', hungry: 'NO', spicy: 'NO', expensive: 'NO' }, // RM 3-5
+    
+    // === PREMIUM LIGHT OPTIONS ===
+    { name: 'Premium Vadai', hungry: 'NO', spicy: 'YES', expensive: 'YES' }, // RM 6-10
+    { name: 'Gold Teh Tarik', hungry: 'NO', spicy: 'NO', expensive: 'YES' }, // RM 8-15
+    { name: 'Artisan Ice Cream', hungry: 'NO', spicy: 'NO', expensive: 'YES' }, // RM 10-18
+    { name: 'Premium Cendol', hungry: 'NO', spicy: 'NO', expensive: 'YES' }, // RM 8-12
+    { name: 'Durian Ice Kacang', hungry: 'NO', spicy: 'NO', expensive: 'YES' }, // RM 12-18
+    { name: 'Fresh Coconut', hungry: 'NO', spicy: 'NO', expensive: 'YES' }, // RM 6-10
+    { name: 'Premium Keropok', hungry: 'NO', spicy: 'YES', expensive: 'YES' }, // RM 8-12
+    { name: 'Imported Muruku', hungry: 'NO', spicy: 'YES', expensive: 'YES' }, // RM 6-9
+    
+    // === SPICY LIGHT OPTIONS ===
+    { name: 'Sambal Prawns', hungry: 'NO', spicy: 'YES', expensive: 'YES' }, // RM 12-18
+    { name: 'Chili Crab Bites', hungry: 'NO', spicy: 'YES', expensive: 'YES' }, // RM 10-15
+    { name: 'Spicy Oyster', hungry: 'NO', spicy: 'YES', expensive: 'YES' }, // RM 8-12
   ],
   thai: [
     { name: 'Tom Yum', hungry: 'YES', spicy: 'YES', expensive: 'NO' },
