@@ -490,7 +490,7 @@ function App() {
       formData.append('_captcha', 'false');
       formData.append('_template', 'table');
 
-      const response = await fetch('https://formsubmit.co/tfqnet@gmail.com', {
+      const response = await fetch('https://formsubmit.co/tfqnet@gmail.com,Mayor_Of_Seremban@yahoo.com', {
         method: 'POST',
         body: formData
       });
@@ -510,11 +510,11 @@ Feedback: ${feedbackText}
 App Version: ${APP_VERSION} Build ${BUILD_NUMBER}
 Time: ${new Date().toLocaleString()}
 
-Please email this to: tfqnet@gmail.com`;
+Please email this to: tfqnet@gmail.com or Mayor_Of_Seremban@yahoo.com`;
       
       if (confirm('Unable to send feedback automatically. Would you like to copy the feedback text to send manually?')) {
         navigator.clipboard.writeText(fallbackMessage).then(() => {
-          alert('Feedback copied to clipboard! Please paste it in an email to tfqnet@gmail.com');
+          alert('Feedback copied to clipboard! Please paste it in an email to tfqnet@gmail.com or Mayor_Of_Seremban@yahoo.com');
         }).catch(() => {
           alert(fallbackMessage);
         });
