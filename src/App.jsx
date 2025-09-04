@@ -624,7 +624,7 @@ Please email this to: tfqnet@gmail.com`;
               fontSize: '14px'
             }}
           >
-            Back to App
+            ← Back
           </button>
 
           <div style={{ textAlign: 'center', marginBottom: '20px' }}>
