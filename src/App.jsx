@@ -6,7 +6,7 @@ import './App.css';
 
 // App version - controlled by developer
 const APP_VERSION = '2.2.0';
-const BUILD_NUMBER = '002'; // Increment with each deployment
+const BUILD_NUMBER = '003'; // Increment with each deployment
 
 
 const foodCategories = {
