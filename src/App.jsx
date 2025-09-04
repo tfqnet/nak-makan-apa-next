@@ -299,7 +299,6 @@ function App() {
   const [restaurant, setRestaurant] = useState('');
   const [answers, setAnswers] = useState({ hungry: '', spicy: '', expensive: '' });
   const [hasJiggled, setHasJiggled] = useState(false);
-  const [showJigglePopup, setShowJigglePopup] = useState(false);
   const [lastInteraction, setLastInteraction] = useState(Date.now());
   const [currentSuggestion, setCurrentSuggestion] = useState(''); // Store the suggestion
   const [showQRPopup, setShowQRPopup] = useState(false); // QR code popup state
@@ -335,7 +334,6 @@ function App() {
   const performJiggle = () => {
     if (!questionCardRef.current) return;
     
-    setShowJigglePopup(true);
     setSwipeStyle({
       transform: 'translateX(15px) rotate(2deg)',
       transition: 'transform 0.3s ease'
@@ -353,11 +351,6 @@ function App() {
         setTimeout(() => setSwipeStyle({}), 300);
       }, 300);
     }, 300);
-    
-    // Hide popup after 2 seconds
-    setTimeout(() => {
-      setShowJigglePopup(false);
-    }, 2000);
   };
 
   // Jiggle animation on first question
@@ -631,7 +624,7 @@ Please email this to: tfqnet@gmail.com`;
               fontSize: '14px'
             }}
           >
-            ← Back to App
+            Back to App
           </button>
 
           <div style={{ textAlign: 'center', marginBottom: '20px' }}>
@@ -824,12 +817,11 @@ Please email this to: tfqnet@gmail.com`;
             />
           </div>
         )}
-        {step === 0 && <h1 style={{ color: colors.titleColor }}>Nak Makan Apa?</h1>}
+        {step === 0 && <h1 style={{ color: colors.titleColor }}>Mamak, nak makan apa?</h1>}
         {step === 0 && (
           <>
             <div className="options" style={{flexDirection: 'column', gap: '1rem'}}>
-              <button onClick={() => handleRestaurant('mamak')}>Restoren Mamak</button>
-              <button onClick={() => handleRestaurant('thai')}>Kedai Tomyan</button>
+              <button onClick={() => handleRestaurant('mamak')}>Jom!!</button>
             </div>
             <button 
               onClick={() => setCurrentPage('about')}
@@ -844,36 +836,12 @@ Please email this to: tfqnet@gmail.com`;
                 fontSize: '14px'
               }}
             >
-              ℹ️ About & Feedback
+              About & Feedback
             </button>
           </>
         )}
         {step > 0 && step <= questions.length && (
           <>
-            {/* Jiggle instruction popup */}
-            {showJigglePopup && isMobile.current && (
-              <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                background: 'rgba(0, 0, 0, 0.8)',
-                color: 'white',
-                padding: '16px 24px',
-                borderRadius: '12px',
-                fontSize: '14px',
-                fontWeight: '600',
-                textAlign: 'center',
-                zIndex: 1000,
-                animation: 'fadeInOut 2s ease',
-                pointerEvents: 'none'
-              }}>
-                👈 {questions[step - 1].key === 'hungry' ? 'Tak Lapar' : 
-                     questions[step - 1].key === 'spicy' ? 'Tak Pedas' : 'Murah'}<br/>
-                👉 {questions[step - 1].key === 'hungry' ? 'Lapar' : 
-                     questions[step - 1].key === 'spicy' ? 'Pedas' : 'Mahal'}
-              </div>
-            )}
             <h2>{questions[step - 1].text}</h2>
             {!isMobile.current && (
               <div className="options">
