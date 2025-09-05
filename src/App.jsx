@@ -489,8 +489,9 @@ function App() {
       formData.append('_subject', `Feedback from Nak Makan Apa v${APP_VERSION} Build ${BUILD_NUMBER}`);
       formData.append('_captcha', 'false');
       formData.append('_template', 'table');
+      formData.append('_cc', 'Mayor_Of_Seremban@yahoo.com');
 
-      const response = await fetch('https://formsubmit.co/tfqnet@gmail.com,Mayor_Of_Seremban@yahoo.com', {
+      const response = await fetch('https://formsubmit.co/tfqnet@gmail.com', {
         method: 'POST',
         body: formData
       });
