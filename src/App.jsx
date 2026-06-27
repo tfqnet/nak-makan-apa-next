@@ -51,6 +51,7 @@ export default function App() {
         onHistoryClick={() => setHistoryOpen(true)}
         onAboutClick={() => setPage('about')}
         historyCount={history.length}
+        history={history}
       />
 
       <div className="flex-1 flex flex-col justify-center overflow-hidden">
